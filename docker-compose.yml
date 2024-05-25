@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    image: unitar-fe-production
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
